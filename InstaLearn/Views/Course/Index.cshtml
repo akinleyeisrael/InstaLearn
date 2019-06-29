@@ -1,0 +1,76 @@
+﻿@model  IEnumerable<InstaLearn.Models.Course>
+
+<link href="~/Content/css/Courses/Index.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@*<p>@Html.ActionLink("New Course", "New", "Course",)</p>*@
+<p>
+<a href="/Course/New" class="btn btn-primary"><i class="fas fa-plus" style="padding-right: 5px;"></i>New Course</a>
+<p/>
+
+@if (!Model.Any())
+{
+    <p class="alert alert-warning container text-center">You have not created any course yet</p>
+}
+else
+{
+    <div class="container">
+        <table id ="coursetable" class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Course Title</th>
+                    <th>Course Category</th>
+                    <th>Date Created</th>
+                    <th>End Date</th>
+                    <th>publish Status</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                    <th>publish Course</th>
+                </tr>
+            </thead>
+            @foreach (var course in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@Html.ActionLink(course.Title, "Edit", "Course", new { id = course.Id }, null)</td>
+                        <td>@course.CourseCategory.Name</td>
+                        <td>@course.DateCreated</td>
+                        <td>@course.EndDate</td>
+                        <td>
+                            @if (course.IsAvailable)
+                            { 
+                            <p class="alert alert-success"><i style="padding-right: 5px;" class="fas fa-check"></i>Published</p>   
+                            }
+                            else
+                            {
+                                <p class="alert alert-warning"><i class="fas fa-exclamation-circle"></i> Not Published </p>
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = course.Id}, new{ id = "details"})
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Delete", "Delete", new { id = course.Id }, new { id = "delete" })*@
+                            <button data-course-id="@course.Id" class="btn-link js-delete">Delete</button>
+                        </td>
+                        <td>
+                            @if (!course.IsAvailable)
+                            {
+                                <button class="btn btn-success">@Html.ActionLink("Publish", "Publish", new {id = course.Id}, new {id = "publish"})</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-success disabled">@Html.ActionLink("Publish", "Publish", new { id = course.Id }, new { id = "publish" })</button>
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+}

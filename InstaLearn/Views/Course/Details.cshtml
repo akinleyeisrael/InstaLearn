@@ -1,0 +1,80 @@
+﻿@model InstaLearn.ViewModel.CourseViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<hr>
+
+<div class="panel panel-primary">
+    <div class="container">
+        <dl class="dl-horizontal">
+            <h3>@Html.DisplayFor(m => m.Title) </h3>
+
+            <br />
+
+            <dt>Course Category</dt>
+            <dd>@Html.DisplayFor(model => model.CourseCategoryId)</dd>
+
+            <br />
+
+            <dt>Date Created </dt>
+            <dd>@Html.DisplayFor(model => model.DateCreated) </dd>
+
+            <br />
+
+            <dt>End Date </dt>
+            <dd>@Html.DisplayFor(m => m.EndDate) </dd>
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.Title)</dt>
+        <dd>@Html.DisplayFor(m => m.Title) </dd>
+
+        <br />
+
+        <dt>@Html.DisplayNameFor(m => m.CourseCategoryId)</dt>
+        <dd>@Html.DisplayFor(model => model.CourseCategoryId)</dd>
+
+        <br/>
+
+        <dt>@Html.DisplayNameFor(m => m.DateCreated) </dt>
+        <dd>@Html.DisplayFor(model => model.DateCreated) </dd>
+
+        <br/>
+
+        <dt>@Html.DisplayNameFor(m => m.EndDate) </dt>
+        <dd>@Html.DisplayFor(m => m.EndDate) </dd>
+    </dl>*@
+
+

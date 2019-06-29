@@ -1,0 +1,46 @@
+﻿@using InstaLearn.Models
+@model InstaLearn.ViewModel.CourseViewModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Course</h2>
+<hr />
+
+<h4 class="alert alert-warning">Are u sure you want to delete this Course?</h4>
+<div class="panel panel-danger">
+    <div class="container">
+
+        <dl class="dl-horizontal">
+            <h3>@Html.DisplayFor(m => m.Title) </h3>
+
+            <br />
+
+            <dt>Course Category</dt>
+            <dd>@Html.DisplayFor(model => model.CourseCategory)</dd>
+
+            <br />
+
+            <dt>Date Created </dt>
+            <dd>@Html.DisplayFor(model => model.DateCreated) </dd>
+
+            <br />
+
+            <dt>End Date </dt>
+            <dd>@Html.DisplayFor(m => m.EndDate) </dd>
+        </dl>
+    </div>
+</div>
+
+@using (Html.BeginForm("Delete","Course"))
+{
+    <button type="submit" class="btn btn-danger">Delete</button>
+}
+<br/>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

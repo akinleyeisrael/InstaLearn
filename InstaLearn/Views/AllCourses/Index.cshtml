@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<InstaLearn.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Title </th>
+
+        <th>Course Category </th>
+
+        <th>Date Published  </th>
+
+        <th>End Date</th>
+        
+        <th class="text-center"><i class="fa fa-user-alt fa-2x"></i></>
+    </tr>
+
+    @foreach (var course in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => course.Title)</td>
+
+            <td>@Html.DisplayFor(modelItem => course.CourseCategory.Name)</td>
+
+            <td>@Html.DisplayFor(modelItem => course.DateCreated)</td>
+
+            <td>@Html.DisplayFor(modelItem => course.EndDate)</td>
+        
+            <td>    
+                <span>@Html.ActionLink("Details","Details", new{ id = course.Id })</span>
+        
+                <span>@Html.ActionLink("Enroll","Enroll", new{ id = course.Id})</span>
+            </td>
+        </tr>
+        @Html.HiddenFor(modelItem => course.EnrollmentDate)
+    }
+
+</table>

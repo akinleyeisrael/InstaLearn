@@ -8,8 +8,15 @@ namespace InstaLearn
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/DataTables/jquery.dataTables.js",
+                "~/Scripts/DataTables/dataTables.bootstrap.js",
+                "~/Scripts/bootbox.js",
+                "~/Scripts/jquery-ui-1.12.1.min.js",
+                "~/Scripts/sweetalert.js",
+                "~/Scripts/fontawesome5.5/js/all.js",
+                "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -19,12 +26,14 @@ namespace InstaLearn
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                "~/Content/bootstrap.css",
+                "~/Content/DataTables/css/jquery.dataTables.css",
+                "~/Content/DataTables/css/dataTables.bootstrap.css",
+                "~/Content/fontawesome5.5/css/all.css",
+                "~/Content/themes/base/jquery-ui.min.css",
+                "~/Content/sweetalert.css",
+                "~/Content/site.css"));
         }
     }
 }

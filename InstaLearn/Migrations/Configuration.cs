@@ -9,7 +9,7 @@ namespace InstaLearn.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(InstaLearn.Models.ApplicationDbContext context)

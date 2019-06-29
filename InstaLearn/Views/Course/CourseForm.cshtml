@@ -1,0 +1,59 @@
+﻿@model InstaLearn.ViewModel.CourseViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Course</h2>
+
+<hr />
+
+@using (Html.BeginForm("Save", "Course"))
+{
+    <div class="col-md-12">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Title)
+            @Html.TextBoxFor(m => m.Title, new {@class = "form-control"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.CourseCategoryId)
+            @Html.DropDownListFor(m => m.CourseCategoryId, new SelectList(Model.CourseCategory, "Id", "Name"), "Select Course Categories", new {@class = "form-control"})
+        </div>
+
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.DateCreated)
+        @Html.HiddenFor(m => m.EndDate)
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+    <div style="padding-top: 20px">
+          <p>@Html.ActionLink("Back to List", "Index")</p>
+    </div>
+  
+
+
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('#DateCreated').datepicker({
+            dateFormat: "dd/mm/yy",
+            showStatus: true,
+            showWeeks: true,
+            currentText: 'Now',
+            autoSize: true,
+            gotoCurrent: true,
+            showAnim: 'blind',
+            highlightWeek: true
+        });
+    });
+</script>
+
+    script type="text/javascript">
+    $(function () {
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+    </script>*@

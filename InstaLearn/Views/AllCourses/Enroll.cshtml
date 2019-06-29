@@ -1,0 +1,53 @@
+﻿@model InstaLearn.ViewModel.CourseViewModel
+
+@{
+    ViewBag.Title = "Enroll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Enroll</h2>
+
+<h3>Are you sure you want to enroll for this course?</h3>
+<div>
+    <h4>Enroll</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+             Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Title)
+        </dd>
+
+        <dt>
+            CourseCategory
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.CourseCategory)
+        </dd>
+
+        <dt>
+            DateCreated
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.DateCreated)
+        </dd>
+
+        <dt>
+            Endate
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.EndDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Enroll","AllCourses")) {
+        @Html.AntiForgeryToken()
+            <input type="submit" value="Enroll" class="btn btn-default" /> 
+    }
+</div>
